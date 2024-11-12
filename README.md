@@ -1,3 +1,6 @@
+1.npm install (Inside The Project Folder)
+2.npm run build (Optional)
+
 Here's a sample project in React: a Simple To-Do List App. This app allows users to add tasks, mark them as completed, delete them, and filter the view to see all, active, or completed tasks. This project demonstrates basic React concepts, including component structure, hooks, and state management.
 
 Project Structure
