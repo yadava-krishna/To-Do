@@ -1,13 +1,13 @@
 // src/TodoList.js
 import React, { useState } from 'react';
 import TodoItem from './TodoItem';
+import './TodoList.css';
 
 function TodoList() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
-  const [filter, setFilter] = useState('all'); // 'all', 'active', 'completed'
+  const [filter, setFilter] = useState('all');
 
-  // Function to handle adding a new task
   const addTask = () => {
     if (newTask.trim() !== '') {
       setTasks([...tasks, { id: Date.now(), text: newTask, completed: false }]);
@@ -15,7 +15,6 @@ function TodoList() {
     }
   };
 
-  // Function to handle task completion toggle
   const toggleTaskCompletion = (taskId) => {
     setTasks(
       tasks.map((task) =>
@@ -24,12 +23,10 @@ function TodoList() {
     );
   };
 
-  // Function to handle task deletion
   const deleteTask = (taskId) => {
     setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
-  // Function to filter tasks based on completion status
   const filteredTasks = tasks.filter((task) => {
     if (filter === 'all') return true;
     if (filter === 'active') return !task.completed;
@@ -38,22 +35,37 @@ function TodoList() {
   });
 
   return (
-    <div style={{ maxWidth: '400px', margin: '0 auto', textAlign: 'left' }}>
-      <div style={{ display: 'flex', marginBottom: '20px' }}>
+    <div>
+      <div className="todo-input-container">
         <input
           type="text"
           placeholder="Add a new task"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
-          style={{ flex: '1', padding: '10px' }}
+          className="todo-input"
         />
-        <button onClick={addTask} style={{ padding: '10px' }}>Add</button>
+        <button onClick={addTask} className="todo-add-button">Add</button>
       </div>
 
-      <div style={{ marginBottom: '20px' }}>
-        <button onClick={() => setFilter('all')}>All</button>
-        <button onClick={() => setFilter('active')}>Active</button>
-        <button onClick={() => setFilter('completed')}>Completed</button>
+      <div className="todo-filter-container">
+        <button
+          className={`todo-filter-button ${filter === 'all' ? 'active' : ''}`}
+          onClick={() => setFilter('all')}
+        >
+          All
+        </button>
+        <button
+          className={`todo-filter-button ${filter === 'active' ? 'active' : ''}`}
+          onClick={() => setFilter('active')}
+        >
+          Active
+        </button>
+        <button
+          className={`todo-filter-button ${filter === 'completed' ? 'active' : ''}`}
+          onClick={() => setFilter('completed')}
+        >
+          Completed
+        </button>
       </div>
 
       <ul style={{ listStyleType: 'none', padding: 0 }}>

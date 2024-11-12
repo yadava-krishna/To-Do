@@ -4,8 +4,8 @@ import TodoList from './TodoList';
 
 function App() {
   return (
-    <div style={{ textAlign: 'center', padding: '20px' }}>
-      <h1>React To-Do List</h1>
+    <div className="todo-container">
+      <h1 className="todo-header">React To-Do List</h1>
       <TodoList />
     </div>
   );

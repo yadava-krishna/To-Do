@@ -3,22 +3,17 @@ import React from 'react';
 
 function TodoItem({ task, toggleTaskCompletion, deleteTask }) {
   return (
-    <li style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+    <li className="todo-item">
       <input
         type="checkbox"
         checked={task.completed}
         onChange={() => toggleTaskCompletion(task.id)}
-        style={{ marginRight: '10px' }}
+        className="todo-checkbox"
       />
-      <span
-        style={{
-          textDecoration: task.completed ? 'line-through' : 'none',
-          flex: 1,
-        }}
-      >
+      <span className={`todo-text ${task.completed ? 'completed' : ''}`}>
         {task.text}
       </span>
-      <button onClick={() => deleteTask(task.id)} style={{ color: 'red' }}>
+      <button onClick={() => deleteTask(task.id)} className="todo-delete-button">
         Delete
       </button>
     </li>
