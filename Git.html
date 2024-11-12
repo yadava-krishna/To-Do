@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commands Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h2 {
+            color: #4CAF50;
+        }
+        pre {
+            background-color: #eee;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .command-container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Git Commands Guide</h1>
+
+    <div class="command-container">
+        <h2>1. Initialize a New Repository</h2>
+        <pre><code>git init</code></pre>
+        <p>Initializes a new Git repository in the current directory, allowing you to start tracking changes in your project.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>2. Check the Status of Your Changes</h2>
+        <pre><code>git status</code></pre>
+        <p>Shows the current state of your working directory and staging area, listing any modified, untracked, or staged files.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>3. Stage Files for Commit</h2>
+        <pre><code>git add .</code></pre>
+        <p>Adds all changed files in the current directory to the staging area, preparing them to be committed.</p>
+        <pre><code>git add filename</code></pre>
+        <p>Stages a specific file for commit. Replace <code>filename</code> with the actual file name.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>4. Commit Changes</h2>
+        <pre><code>git commit -m "Your commit message here"</code></pre>
+        <p>Records the staged changes in the local repository with a message describing the changes.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>5. Rename the Branch</h2>
+        <pre><code>git branch -M main</code></pre>
+        <p>Renames the current branch to <code>main</code>. This is helpful if you started on a branch like <code>master</code> and want to switch to the <code>main</code> naming convention.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>6. Add a Remote Repository</h2>
+        <pre><code>git remote add origin https://github.com/your-username/repository-name.git</code></pre>
+        <p>Links the local repository to a remote GitHub repository, allowing you to push and pull changes to and from GitHub. Replace <code>your-username/repository-name</code> with your actual GitHub details.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>7. Push Changes to Remote Repository</h2>
+        <pre><code>git push -u origin main</code></pre>
+        <p>Pushes commits from the local repository to the remote repository on the specified branch (<code>main</code> here) and sets up tracking so that <code>git push</code> can be used without specifying <code>origin</code> and <code>main</code> every time.</p>
+        <pre><code>git push -u origin master</code></pre>
+        <p>Pushes to the <code>master</code> branch if the branch is named <code>master</code> instead of <code>main</code>.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>8. Pull Remote Changes into Local Repository</h2>
+        <pre><code>git pull origin main --allow-unrelated-histories</code></pre>
+        <p>Pulls changes from the remote repository’s <code>main</code> branch into the local repository, merging any differences. The <code>--allow-unrelated-histories</code> flag is used if the local and remote repositories don’t share a history, such as when they were initialized separately.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>9. Force Push to Overwrite Remote Changes (Use with Caution)</h2>
+        <pre><code>git push -u origin main --force</code></pre>
+        <p>Forcefully pushes your local changes to the remote repository, overwriting any changes in the remote branch. Use this only if you’re sure you want to overwrite the remote content.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>10. Stage and Commit After Resolving Conflicts</h2>
+        <pre><code>git add filename</code></pre>
+        <p>Stages the file(s) after resolving any merge conflicts, marking them as resolved.</p>
+        <pre><code>git commit -m "Resolve merge conflicts"</code></pre>
+        <p>Commits the changes after resolving conflicts, with a message indicating that conflicts have been resolved.</p>
+    </div>
+
+    <div class="command-container">
+        <h2>11. View Branches</h2>
+        <pre><code>git branch</code></pre>
+        <p>Lists all branches in the repository, highlighting the current branch.</p>
+    </div>
+
+</body>
+</html>
